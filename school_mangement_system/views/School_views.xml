@@ -12,6 +12,7 @@
                             <label for="name"/>
                             <h1>
                                 <field name="name" placeholder="Title"/>
+                                <field name="type"/>
                             </h1>
                         </div>
                     </sheet>
@@ -25,6 +26,7 @@
             <field name="arch" type="xml">
                 <tree string="Schools">
                     <field name="name"/>
+                    <field name="type"/>
                 </tree>
             </field>
         </record>
