@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!-- Register form view -start -->
+    <record id="Register_view_form" model="ir.ui.view">
+        <field name="name">Register_view_form</field>
+        <field name="model">booking.register</field>
+        <field name="arch" type="xml">
+            <form string="Register_form">
+                <sheet>
+                    <group>
+                        <field name="name_id"/>
+                        <field name="phone"/>
+                    </group>
+                    <group>
+                        <field name="Email"/>
+                        <field name="Password"/>
+                        <field name="Gender"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <!-- Register form view -end -->
+
+
+    <!-- Register tree view -start -->
+    <record id="Register_view_tree" model="ir.ui.view">
+        <field name="name">Register_view_Tree</field>
+        <field name="model">booking.register</field>
+        <field name="arch" type="xml">
+            <tree string="Register_booking">
+                <field name="name_id"/>
+                <field name="phone"/>
+                <field name="Email"/>
+                <field name="Password"/>
+                <field name="Gender"/>
+            </tree>
+        </field>
+    </record>
+    <!-- Register tree view -end -->
+
+    <record id="action_booking" model="ir.actions.act_window">
+        <field name="name">Booking Management System</field>
+        <field name="res_model">booking.register</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="Booking_root_menu"
+              name="Booking Management System"/>
+
+
+    <menuitem id="Booking_sub_menu"
+              name="User Registration"
+              action="action_booking"
+              parent="Booking_root_menu"/>
+
+
+</odoo>

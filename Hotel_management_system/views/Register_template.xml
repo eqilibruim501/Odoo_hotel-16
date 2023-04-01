@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <template id="bookingRegister" name="Register">
+        <t t-call="website.layout">
+            <div class="oe_structure">
+                <section class="s_title parallax s_parallax_is_fixed bg-black-50 pt24 pb24" data-vcss="001"
+                         data-snippet="s_title" data-scroll-background-ratio="1">
+                    <span class="s_parallax_bg oe_img_bg"
+                          style="background-image: url('/web/image/website.s_banner_default_image'); background-position: 50% 0;"/>
+                    <div class="o_we_bg_filter bg-black-50"/>
+                    <div class="container">
+                        <h1>Register with us</h1>
+                    </div>
+                </section>
+                <div class="container" style="margin:50px;">
+                    <form action="/hotel_booking/register" method="POST">
+                        <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                        <div class="row" style="margin:20px;">
+                            <div class="col">
+                                <input type="text" name="name" class="form-control" placeholder="name"/>
+                            </div>
+                            <div class="col">
+                                <input type="email" name="login" class="form-control" placeholder="email"/>
+                            </div>
+                        </div>
+                        <div class="row" style="margin:20px;">
+                            <div class="col">
+                                <input type="text" name="phone" class="form-control" placeholder="Phone"/>
+                            </div>
+                            <div class="col">
+                                <input type="password" name="Password" class="form-control" placeholder="Password"/>
+                            </div>
+                        </div>
+                        <div class="text-center d-grid gap-2 col-6 mx-auto">
+                            <input style="margin:20px;" type="submit" value="Register" class="btn btn-primary"/>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </t>
+    </template>
+</odoo>

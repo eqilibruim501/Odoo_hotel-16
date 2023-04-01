@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <template id="rooms" name="Hotel rooms">
+        <t t-call="website.layout">
+            <div class="oe_structure">
+                <div>
+                    <h3>Rooms Registration for
+                        <b>
+                            <span t-esc="rooms.name"/>
+                        </b>
+                    </h3>
+                </div>
+                <div class="container">
+                    <div class="row row-cols-1 row-cols-md-2 g-4">
+                        <t t-foreach="rooms.room_ids" t-as="room_id">
+                            <t t-if="room_id.Status == 'Available'">
+
+                                <div class="col">
+                                    <div class="card">
+                                        <img src="/web/image/588-7f92b06c/2690549.jpg" style="width: 111%;"
+                                             class="card-img-top" alt="..."/>
+                                        <div class="card-body">
+                                            <h5 class="card-title">
+                                                <span t-esc="room_id.name"/>
+                                            </h5>
+                                            <p class="card-text">
+                                                <span t-esc="room_id.about"/>
+                                            </p>
+                                        </div>
+                                        <div>
+                                            <!--t-attf-href="/room_booking/{{room_id.id}}/{{userid}}"-->
+                                            <a>
+                                                <button type="button" data-bs-toggle="modal"
+                                                        t-attf-data-bs-target="#Datemodal{{room_id.id}}"
+                                                        style="margin-left:20px; margin-bottom:20px;"
+                                                        class="btn btn-primary">Book
+                                                </button>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Modal -->
+                                <div class="modal fade" t-attf-id="Datemodal{{room_id.id}}" tabindex="-1"
+                                     aria-labelledby="exampleModalLabel"
+                                     aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLabel">Booking Room:
+                                                    <span t-esc="room_id.id"/>
+                                                </h5>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                        aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                    <h3>Please Select a date for the Booking</h3>
+                                                    <form id="myForm" method="post" action="/room_booking">
+                                                        <input type="hidden" name="csrf_token"
+                                                               t-att-value="request.csrf_token()"/>
+                                                        <input type="date" t-attf-min="{{today}}" name="date" class="form-control"/>
+                                                        <input type="hidden" name="roomid" t-attf-value="{{room_id.id}}"/>
+                                                        <input type="hidden" name="userid" t-attf-value="{{userid}}"/>
+                                                    </form>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                                                    Close
+                                                </button>
+                                                <button type="submit" onclick="myFunction()" class="btn btn-primary">Book room</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Modal end -->
+                            </t>
+                        </t>
+                    </div>
+
+                </div>
+            </div>
+        </t>
+    </template>
+</odoo>

@@ -9,8 +9,3 @@ class School(models.Model):
         ('Private','Private'),
         ('Goverment','Goverment')
     ])
-
-
-
-
-

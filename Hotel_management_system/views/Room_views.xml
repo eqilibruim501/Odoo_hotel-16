@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!-- Room Form view -start -->
+    <record id="Room_view_form" model="ir.ui.view">
+        <field name="name">Room_view_form</field>
+        <field name="model">hotel.room</field>
+        <field name="arch" type="xml">
+            <form string="Room_form">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="hotel_id"/>
+                        <field name="booking_date"/>
+                    </group>
+                    <group>
+                        <field name="Status"/>
+                        <field name="contact"/>
+                        <field name="about"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <!-- Room Form view -end -->
+
+     <!-- Room tree view -start -->
+    <record id="Room_view_tree" model="ir.ui.view">
+        <field name="name">Room_view_Tree</field>
+        <field name="model">hotel.room</field>
+        <field name="arch" type="xml">
+            <tree string="Register_booking">
+                <field name="name"/>
+                <field name="hotel_id"/>
+                <field name="Status"/>
+                <field name="contact"/>
+            </tree>
+        </field>
+    </record>
+    <!-- Room tree view -end -->
+
+     <record id="action_room" model="ir.actions.act_window">
+        <field name="name">Room Booking</field>
+        <field name="res_model">hotel.room</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+
+    <menuitem id="room_sub_menu"
+              name="Rooms"
+              action="action_room"
+              parent="Booking_root_menu"/>
+</odoo>

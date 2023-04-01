@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <template id="Conformation_page" name="Conformation Page">
+        <t t-call="website.layout">
+            <div class="oe_structure">
+                <div class="container shadow p-3 mb-5 mt-5 bg-white rounded" style="width:100% height:120px">
+                    <p class="text-success">
+                        Thank you for Accepting our services and booked room with us please Confirm below Details
+                    </p>
+                    <hr/>
+                    <div style="align:center">
+                        <h2>hello <span class="text-danger" t-esc="room.contact.name"/> Your booking is confirmed for the <span class="text-danger" t-esc="room.hotel_id.name"/> on the date of below details
+                            please Verify
+                        </h2>
+                        <div class="card-group">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">Name: <span class="text-danger" t-esc="room.contact.name"/></h5>
+                                    <p class="card-text"><b>Room no:</b><span t-esc="room.name"/><br/>
+                                        <b>Hotel name:</b><span t-esc="room.hotel_id.name"/><br/>
+                                        <b>Booking date and time(on which you booked the room):</b><span t-esc="room.create_date"/><br/>
+                                        <b>Arrival date:</b><span t-esc="room.booking_date"/><br/>
+                                    </p>
+                                </div>
+                            </div>
+
+                        </div>
+                        <hr/>
+                        <p class="text-info">We will welcome you to <span class="text-success" t-esc="room.hotel_id.name"/> with all our Heart</p>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+</odoo>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <template id="index" name="index">
+        <t t-call="website.layout">
+            <div class="oe_structure">
+                <section
+                        class="s_cover bg-black-50 pt96 pb96 o_colored_level s_parallax_no_overflow_hidden parallax s_parallax_is_fixed"
+                        data-scroll-background-ratio="1" data-snippet="s_cover" data-name="Cover"
+                        style="background-image: none;">
+                    <span class="s_parallax_bg oe_img_bg o_bg_img_center"
+                          style="background-image: url(&quot;/web/image/394-40f818d7/istockphoto-539282181-170667a.jpg&quot;);"/>
+
+                    <div class="o_we_bg_filter bg-black-50"/>
+                    <div class="s_allow_columns container">
+                        <h1 style="text-align: center;">
+                            <font style="font-size: 62px; font-weight: bold;" class="o_default_snippet_text">Booked your
+                                Table Now
+                            </font>
+                            <br/>
+                        </h1>
+                        <p class="lead o_default_snippet_text" style="text-align: center;">Booked your room with the one
+                            click we are providing Value for money room for you .
+                        </p>
+                        <p style="text-align: center;">
+                            <a class="btn btn-primary mb-2 o_default_snippet_text" href="/hotel_booking/login">Book Now
+                            </a>
+                        </p>
+                    </div>
+                </section>
+            </div>
+        </t>
+    </template>
+</odoo>

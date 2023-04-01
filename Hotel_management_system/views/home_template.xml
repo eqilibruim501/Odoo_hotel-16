@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <template id="home" name="Home">
+        <t t-call="website.layout">
+            <div class="oe_structure">
+<!--                <div style="text-align: right;">-->
+<!--                    <h5 style="color:red">Login as <span t-esc="user.name"/></h5>-->
+<!--                </div>-->
+                <div class="row mt-4">
+                    <t t-foreach="hotels" t-as="hotel">
+                        <div class="card mb-3" style="max-width: 540px; margin:10px;">
+                            <div class="row g-0">
+                                <div class="col-md-4 mt-4">
+                                    <img src="/web/image/588-7f92b06c/2690549.jpg" class="img-fluid rounded-start" alt="..."/>
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="card-body">
+                                        <h5 class="card-title"><span t-esc="hotel.name"/></h5>
+                                        <p class="card-text"><b>Total room:<span t-esc="hotel.number_of_rooms"/></b>
+                                        </p>
+                                        <p class="card-text">
+                                            <a t-attf-href="/hotel/rooms/{{user.id}}/{{hotel.id}}" class="btn btn-primary">Book Room</a>
+                                            <a href="#" class="btn btn-primary ms-3">More information</a>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </div>
+            </div>
+        </t>
+    </template>
+</odoo>

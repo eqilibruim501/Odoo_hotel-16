@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <template id="HotelRegister" name="Hotel Register">
+        <t t-call="website.layout">
+            <div class="oe_structure">
+                <section class="s_title parallax s_parallax_is_fixed bg-black-50 pt24 pb24" data-vcss="001"
+                         data-snippet="s_title" data-scroll-background-ratio="1">
+                    <span class="s_parallax_bg oe_img_bg"
+                          style="background-image: url(&quot;/web/image/435-7f92b06c/2690549.jpg&quot;);"/>
+                    <div class="o_we_bg_filter bg-black-50"/>
+                    <div class="container">
+                        <h1>Register with us</h1>
+                        <small>Register with us to Grow you business more Quickly</small>
+                    </div>
+                </section>
+                <div class="container shadow rounded mx-mt-n5" style="margin-top:30px; margin-bottom:20px;">
+                    <form action="/hotel/Registration" method="post">
+                        <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                        <div class="row" style="margin:10px;">
+                            <div class="col" style="margin-bottom:10px; margin-top:35px;">
+                                <input type="text" name="name" class="form-control" placeholder="Hotel-name"/>
+                            </div>
+                            <div class="col" style="margin-bottom:10px; margin-top:35px;">
+                                <input type="text" name="number_of_rooms" class="form-control"
+                                       placeholder="Numbers of Rooms"/>
+                            </div>
+                        </div>
+
+                        <div class="row" style="margin:10px;">
+                            <div class="col" style="margin-bottom:10px;">
+                                <input type="text" name="address" class="form-control" placeholder="Address"/>
+                                <textarea class="form-control" style="margin-top:20px;" name="about" rows="3" cols="45" placeholder="Explain about your hotel..."/>
+                            </div>
+
+
+                            <div class="row" style="margin:10px;">
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                            </div>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+        </t>
+    </template>
+</odoo>

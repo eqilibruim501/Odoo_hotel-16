@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="my_Booking" model="website.menu">
+        <field name="name">My Bookings</field>
+        <field name="url">/room_booking/my_booking</field>
+        <field name="parent_id" ref="website.main_menu"/>
+    </record>
+
+    <template id="MyBooking" name="My Bookings">
+        <t t-call="website.layout">
+            <div class="oe_structure">
+                <h1>Hello
+                    <span t-esc="userid.name"/>
+                </h1>
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">Room no</th>
+                            <th scope="col">Hotel</th>s
+                            <th scope="col">booking Date</th>
+                            <th scope="col">Price</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <t t-foreach="booking" t-as="booking">
+                            <tr>
+                                <th scope="row">
+                                    <span t-esc="booking.name"/>
+                                </th>
+                                <td>
+                                    <span t-esc="booking.hotel_id.name"/>
+                                </td>
+                                <td>
+                                    <span t-esc="booking.booking_date"/>
+                                </td>
+                                <td>Price</td>
+                            </tr>
+                        </t>
+                    </tbody>
+                </table>
+            </div>
+        </t>
+    </template>
+</odoo>
